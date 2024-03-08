@@ -34,7 +34,13 @@
     <div class="main d-flex flex-column justify-content-center align-items-center">
 
         @if (session('status'))
-            <div class="alert alert-danger">
+            <div class="alert alert-danger" style="width: 500px">
+                {{ session('message') }}
+            </div>
+        @endif
+
+        @if (session('statusRegister'))
+            <div class="alert alert-warning" style="width: 500px">
                 {{ session('message') }}
             </div>
         @endif
@@ -53,7 +59,7 @@
                     <button type="submit" class="btn btn-primary form-control">Login</button>
                 </div>
                 <div class="text-center">
-                    <a href="/register">Sign Up</a>
+                    Don't have account?<a href="/register"> <strong>Register Here!</strong></a>
                 </div>
             </form>
         </div>
