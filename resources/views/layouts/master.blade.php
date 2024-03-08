@@ -12,55 +12,29 @@
 
     <title>Rental Buku - @yield('title')</title>
 
-    <style>
-        .main {
-            height: 100vh;
-        }
+    {{-- css manual --}}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-        .sidebar {
-            background: rgb(66, 66, 66);
-            color: #ffffff
-        }
-
-        .sidebar a {
-            text-decoration: none;
-            color: #ffffff;
-            display: block;
-            padding: 20px 10px;
-        }
-
-        .sidebar a:hover {
-            background: black;
-        }
-    </style>
+    {{-- bootstrap Icons --}}
+    <!-- Option 1: Include in HTML -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 
 <body>
 
     <div class="main d-flex flex-column justify-content-between">
-        @include('.layouts.navbar')
-
-        <div class="body-content h-100">
-            <div class="row g-0 h-100 ">
-                <div class="sidebar col-lg-2 collapse d-lg-block" id="navbarNavAltMarkup">
-
-                    @if (Auth::user()->role_id == 1)
-                        <a href="/dashboard">Dashboard</a>
-                        <a href="/books">Books</a>
-                        <a href="/categories">Categories</a>
-                        <a href="#">Users</a>
-                        <a href="#">Rent Log</a>
-                        <a href="/logout">Logout</a>
-                    @else
-                        <a href="/profile">Profile</a>
-                        <a href="/logout">Logout</a>
-                    @endif
-                </div>
-                <div class="content col-lg-10 p-5">
-                    @yield('content')
-                </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/books">Rental Buku</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
-        </div>
+        </nav>
+
+        @include('layouts.navbar')
     </div>
 
 
