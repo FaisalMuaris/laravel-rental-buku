@@ -37,7 +37,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('only_admin');
     Route::get('/profile', [UserController::class, 'profile'])->middleware( 'only_client' );
     Route::get('/books', [BookController::class, 'index']);
+
+    // category
     Route::get('/categories', [CategoryController::class, 'index']);
+    Route::get('/add-category', [CategoryController::class, 'add']);
+    Route::post('/add-category', [CategoryController::class, 'create']);
+    Route::get('/category-edit/{id}', [CategoryController::class, 'edit']);
+    Route::put('/category-edit/{id}', [CategoryController::class, 'update']);
     Route::get('/users', [UserController::class, 'index']);
     Route::get('/rent-logs', [RentLogController::class, 'index']);
 });

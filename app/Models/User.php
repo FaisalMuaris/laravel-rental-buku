@@ -48,4 +48,14 @@ class User extends Authenticatable
     protected $attributes = [
         'role_id' => 2
     ];
+
+    /**
+     * Get all of the renlogs for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function rentlogs()
+    {
+        return $this->hasMany(RentLog::class);
+    }
 }

@@ -57,6 +57,15 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
                     <td colspan="7" class="text-center">No Data</td>
                 </tr>
             </tbody>

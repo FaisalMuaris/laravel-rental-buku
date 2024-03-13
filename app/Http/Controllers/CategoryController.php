@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class CategoryController extends Controller
 {
@@ -11,15 +14,28 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('category');
+        $categories = Category::all();
+        return view('category', compact('categories'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+
+    public function add() {
+        return view('category-add');
+     }
+
+
+    public function create(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:categories',
+        ]);
+
+        $categories = Category::create($request->all());
+
+        return redirect('/categories')->with('success', 'Category Added Successfully.');
     }
 
     /**
@@ -43,7 +59,9 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::all();
+
+        return view('category-edit', compact('category'));
     }
 
     /**
@@ -51,7 +69,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
+
     }
 
     /**
